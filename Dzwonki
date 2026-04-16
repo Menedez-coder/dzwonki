@@ -1,0 +1,21 @@
+import time
+dzwonki_h = [8,8,9,10,11,12,13,14]
+dzwonki_m = [0,55,50,55,50,45,40,35]
+#Napisz program który będzie działał od godziny 7:50 do godziny 15:45. O pełnych godzinach ma pokazywać że rozpoczęła się lekcja, a po upływie 45 min na 15 min ma pokazywać, że zaczęła się przerwa.
+while True:
+    if time.localtime().tm_hour == 8:
+        print('Dzisiejsze lekcje właśnie się zaczeły')
+        for i in range(len(dzwonki_h)):
+            if time.localtime().tm_hour == dzwonki_h[i] and time.localtime().tm_min == dzwonki_m[i]:
+                print('Lekcja zaczyna się!')
+                time.sleep(2700)
+                if i != 2:
+                    print('Przerwa!')
+                    time.sleep(600)
+                    print('Koniec przerwy')
+                else:
+                    print('Długa przerwa!')
+                    time.sleep(1200)
+                    print('koniec dlugiej przerwy')
+        if time.localtime().tm_hour == 15 and time.localtime().tm_min == 20:
+            print('Lekcje na ten dzień zakończyły się!')
